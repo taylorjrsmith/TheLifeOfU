@@ -25,18 +25,12 @@ namespace TheTaleOfU.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Text = c.String(),
-                        OriginScenarioId = c.Int(nullable: false),
-                        NextScenarioId = c.Int(nullable: false),
+                        NextScenarioId = c.Int(),
                         OptionIdentifier = c.Int(nullable: false),
-                        Scenario_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Scenarios", t => t.Scenario_Id)
-                .ForeignKey("dbo.Scenarios", t => t.NextScenarioId, cascadeDelete: true)
-                .ForeignKey("dbo.Scenarios", t => t.OriginScenarioId, cascadeDelete: true)
-                .Index(t => t.OriginScenarioId)
-                .Index(t => t.NextScenarioId)
-                .Index(t => t.Scenario_Id);
+                .ForeignKey("dbo.Scenarios", t => t.NextScenarioId)
+                .Index(t => t.NextScenarioId);
             
             CreateTable(
                 "dbo.Scenarios",
@@ -55,12 +49,8 @@ namespace TheTaleOfU.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Options", "OriginScenarioId", "dbo.Scenarios");
             DropForeignKey("dbo.Options", "NextScenarioId", "dbo.Scenarios");
-            DropForeignKey("dbo.Options", "Scenario_Id", "dbo.Scenarios");
-            DropIndex("dbo.Options", new[] { "Scenario_Id" });
             DropIndex("dbo.Options", new[] { "NextScenarioId" });
-            DropIndex("dbo.Options", new[] { "OriginScenarioId" });
             DropTable("dbo.Scenarios");
             DropTable("dbo.Options");
             DropTable("dbo.Items");
