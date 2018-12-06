@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTaleOfU", "TheTaleOfU\Th
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTaleOfU.Console", "TheTaleOfU.Console\TheTaleOfU.Console.csproj", "{0A4DE6CB-5FBC-4C32-A686-0298C626450E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTaleOfU.ScenarioBuilder", "TheTaleOfU.ScenarioBuilder\TheTaleOfU.ScenarioBuilder.csproj", "{43D0EA3F-D6E9-4C24-B6AF-2114405CDD96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0A4DE6CB-5FBC-4C32-A686-0298C626450E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A4DE6CB-5FBC-4C32-A686-0298C626450E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A4DE6CB-5FBC-4C32-A686-0298C626450E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43D0EA3F-D6E9-4C24-B6AF-2114405CDD96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D0EA3F-D6E9-4C24-B6AF-2114405CDD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D0EA3F-D6E9-4C24-B6AF-2114405CDD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D0EA3F-D6E9-4C24-B6AF-2114405CDD96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
