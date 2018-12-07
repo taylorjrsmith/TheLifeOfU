@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -16,7 +17,12 @@ namespace TheTaleOfU
         public List<Option> Options { get; set; }
         public bool IsEndOfScenarioRoute { get; set; }
         public string EndOfEventMethodName { get; set; }
-        public bool hasEvent { get; set; }
+        [NotMapped]
+        public bool hasEvent => !string.IsNullOrEmpty(EndOfEventMethodName);
+        /// <summary>
+        /// The linked item is either an item that can be gained from this scenario or an item that can be used in this scenario
+        /// </summary>
+        public Item LinkedItem { get; set; }
 
         public void RunScenario()
         {
@@ -45,6 +51,8 @@ namespace TheTaleOfU
             var numericOption = Convert.ToInt32(option);
 
             var nextOption = Options.FirstOrDefault(a => a.OptionIdentifier == numericOption);
+            var scenario = new TheTaleOfUContext().Scenarios.FirstOrDefault(a => a.Id == nextOption.NextScenarioId);
+            nextOption.NextScenario = scenario;
             nextOption.NextScenario.RunScenario();
 
         }
@@ -70,6 +78,14 @@ namespace TheTaleOfU
         public void UseShrinkRay()
         {
 
+        }
+
+        public void UseAnItem()
+        {
+            if (LinkedItem.Durability > 0)
+            {
+                LinkedItem.Durability--;
+            }
         }
 
     }

@@ -14,5 +14,9 @@ namespace TheTaleOfU
         public ItemType Type { get; set; }
         public int Damage { get; set; }
         public string Effect { get; set; }
+        /// <summary>
+        /// Durability is the number of uses an item has
+        /// </summary>
+        public int Durability { get; set; }
     }
 }

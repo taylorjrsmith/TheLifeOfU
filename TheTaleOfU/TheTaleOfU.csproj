@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201812041700089_InitialMigration.Designer.cs">
       <DependentUpon>201812041700089_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812071401125_InitialMigration1.cs" />
+    <Compile Include="Migrations\201812071401125_InitialMigration1.Designer.cs">
+      <DependentUpon>201812071401125_InitialMigration1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Option.cs" />
     <Compile Include="Player.cs" />
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201812041700089_InitialMigration.resx">
       <DependentUpon>201812041700089_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812071401125_InitialMigration1.resx">
+      <DependentUpon>201812071401125_InitialMigration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

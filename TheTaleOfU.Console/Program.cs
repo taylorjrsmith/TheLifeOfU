@@ -10,7 +10,8 @@ namespace TheTaleOfU.Console
     {
         static void Main(string[] args)
         {
-            
+            var gameEngine = new GameEngine();
+            gameEngine.StartGame();
         }
     }
 }
