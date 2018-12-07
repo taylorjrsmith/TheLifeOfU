@@ -45,8 +45,12 @@ namespace TheTaleOfU
 
             while (hourWindow > DateTime.Now)
             {
-                var scenario = LoadScenario();
-                scenario.RunScenario();
+                foreach (var p in Players)
+                {
+                    Console.WriteLine($"{p.Name} it's your turn");
+                    var scenario = LoadScenario();
+                    scenario.RunScenario(p);
+                }
             }
 
 

@@ -18,19 +18,21 @@ namespace TheTaleOfU
         public bool IsEndOfScenarioRoute { get; set; }
         public string EndOfEventMethodName { get; set; }
         [NotMapped]
-        public bool hasEvent => !string.IsNullOrEmpty(EndOfEventMethodName);
+        public bool HasEvent => !string.IsNullOrEmpty(EndOfEventMethodName);
+        [NotMapped]
+        private Player CurrentPlayer { get; set; }
         /// <summary>
         /// The linked item is either an item that can be gained from this scenario or an item that can be used in this scenario
         /// </summary>
         public Item LinkedItem { get; set; }
 
-        public void RunScenario()
+        public void RunScenario(Player player)
         {
+            CurrentPlayer = player;
             Console.WriteLine(ScenarioDescription);
-            if (IsEndOfScenarioRoute || hasEvent)
+            if (IsEndOfScenarioRoute || HasEvent)
             {
                 CallEventFromString(EndOfEventMethodName);
-                return;
             }
 
             Console.ReadKey();
@@ -53,7 +55,7 @@ namespace TheTaleOfU
             var nextOption = Options.FirstOrDefault(a => a.OptionIdentifier == numericOption);
             var scenario = new TheTaleOfUContext().Scenarios.FirstOrDefault(a => a.Id == nextOption.NextScenarioId);
             nextOption.NextScenario = scenario;
-            nextOption.NextScenario.RunScenario();
+            nextOption.NextScenario.RunScenario(player);
 
         }
 
@@ -86,6 +88,12 @@ namespace TheTaleOfU
             {
                 LinkedItem.Durability--;
             }
+        }
+
+        public void HealthGain()
+        {
+            CurrentPlayer.Health += 20;
+            Console.WriteLine($"Congratulations {CurrentPlayer.Name} you have gained 20 health for using a medpack");
         }
 
     }
