@@ -24,7 +24,7 @@ namespace TheTaleOfU
         /// <summary>
         /// The linked item is either an item that can be gained from this scenario or an item that can be used in this scenario
         /// </summary>
-        public Item LinkedItem { get; set; }
+        public virtual ScenarioEvent Event { get; set; }
 
         public void RunScenario(Player player)
         {
@@ -84,16 +84,30 @@ namespace TheTaleOfU
 
         public void UseAnItem()
         {
-            if (LinkedItem.Durability > 0)
+            if (CurrentPlayer.ActiveItem.Durability > 0)
             {
-                LinkedItem.Durability--;
+                CurrentPlayer.ActiveItem.Durability--;
             }
+            if (CurrentPlayer.ActiveItem.Durability == 0)
+                CurrentPlayer.Inventory.Remove(CurrentPlayer.ActiveItem);
         }
+
+        public void GainItem()
+        {
+            CurrentPlayer.Inventory.Add(Event.LinkedItem);
+        }
+
+        public void TakeDamage()
+        {
+            CurrentPlayer.Health -= Event.LinkedItem.Value;
+        }
+
+
 
         public void HealthGain()
         {
-            CurrentPlayer.Health += 20;
-            Console.WriteLine($"Congratulations {CurrentPlayer.Name} you have gained 20 health for using a medpack");
+            CurrentPlayer.Health += Event.LinkedItem.Value;
+            Console.WriteLine($"Congratulations {CurrentPlayer.Name} you have gained {Event.LinkedItem.Value} health for using a medpack");
         }
 
     }

@@ -18,5 +18,6 @@ namespace TheTaleOfU
         /// Durability is the number of uses an item has
         /// </summary>
         public int Durability { get; set; }
+        public int Value { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,5 +15,7 @@ namespace TheTaleOfU
         public string Name { get; set; }
         public List<Item> Inventory { get; set; }
         public PlayerType PlayerType { get; set; }
+        [NotMapped]
+        public Item ActiveItem { get; set; }
     }
 }
