@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Collapse</title>
+        <!-- Materalize framework -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <link rel="stylesheet" href="stylesheet.css" />
+    </head>
+    <body>
+        <div class="container">
+            <button class="collapse" id="button">Click to Collapse</button>
+            <div class="content center">
+                <input class="input" type="text" id="name" placeholder="Senario Name">
+                <textarea placeholder="Enter your senario here!" rows="20" id="senario_text" cols="40" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+                <div class="input-field col s12 center" id="select">
+                    <select>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                    <label>Select linked senario</label>
+                  </div>
+                  <a class="button waves-effect waves-light btn" id="close"><i class="material-icons left"></i>Close</a>
+            </div>
+        </div>        
+    </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="main.js"></script>
+</html>
+    
