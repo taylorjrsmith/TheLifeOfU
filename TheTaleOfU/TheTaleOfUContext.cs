@@ -12,9 +12,10 @@ namespace TheTaleOfU
         public DbSet<Scenario> Scenarios { get; set; }
         public DbSet<Option> Options { get; set; }
         public DbSet<Item> Items { get; set; }
+        public DbSet<ScenarioEvent> Events { get; set; }
         public TheTaleOfUContext() : base("TheTaleOfUContext")
         {
-                
+
         }
 
     }

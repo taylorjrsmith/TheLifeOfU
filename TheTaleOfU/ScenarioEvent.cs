@@ -12,8 +12,6 @@ namespace TheTaleOfU
         public int Id { get; set; }
         public int Value { get; set; }
         public int OriginScenarioId { get; set; }
-        [ForeignKey("OriginScenarioId")]
-        public Scenario OriginScenario { get; set; }
         public virtual Item LinkedItem { get; set; }
     }
 }

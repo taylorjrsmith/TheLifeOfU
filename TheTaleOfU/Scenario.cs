@@ -32,8 +32,13 @@ namespace TheTaleOfU
             Console.WriteLine(ScenarioDescription);
             if (IsEndOfScenarioRoute || HasEvent)
             {
+                Event = new TheTaleOfUContext().Events.FirstOrDefault(a => a.OriginScenarioId == Id);
+                if(Event!=null)
                 CallEventFromString(EndOfEventMethodName);
             }
+
+            if (Options == null)
+                Options = new TheTaleOfUContext().Options.Where(a => a.OriginScenarioId == Id).ToList();
 
             Console.ReadKey();
             foreach (var o in Options)
@@ -55,6 +60,8 @@ namespace TheTaleOfU
             var nextOption = Options.FirstOrDefault(a => a.OptionIdentifier == numericOption);
             var scenario = new TheTaleOfUContext().Scenarios.FirstOrDefault(a => a.Id == nextOption.NextScenarioId);
             nextOption.NextScenario = scenario;
+            if (nextOption.NextScenario == null)
+                return;
             nextOption.NextScenario.RunScenario(player);
 
         }
@@ -74,7 +81,8 @@ namespace TheTaleOfU
         public void CallEventFromString(string eventName)
         {
             MethodInfo mi = this.GetType().GetMethod(eventName);
-            mi.Invoke(this, null);
+            if (mi != null)
+                mi.Invoke(this, null);
         }
 
         public void UseShrinkRay()
@@ -107,7 +115,7 @@ namespace TheTaleOfU
         public void HealthGain()
         {
             CurrentPlayer.Health += Event.LinkedItem.Value;
-            Console.WriteLine($"Congratulations {CurrentPlayer.Name} you have gained {Event.LinkedItem.Value} health for using a medpack");
+            Console.WriteLine($"Congratulations {CurrentPlayer.Name} you have gained {Event.LinkedItem.Value} health for using a {Event.LinkedItem.Name}");
         }
 
     }
