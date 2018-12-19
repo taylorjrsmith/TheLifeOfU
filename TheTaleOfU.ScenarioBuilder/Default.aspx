@@ -1,68 +1,67 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="TheTaleOfU.ScenarioBuilder._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
-        <!--Center div-->
+    <div class="container body-content">
+        <div class="t-box" style="width: 1500px; height: 850px; color: white; background-color: white; opacity: 0.9; margin: 0 !important; position: absolute; top: 60px; left: 25px; border-radius: 15px; border: 2px solid lavenderblush; position: absolute;">
+            <img src="/assets/logo.png" style="width: 200px; position: absolute; top: 0; left: 0; margin: 20px;">
 
-        <div class="senario-name-container input-field">
-            <input id="senario_name" type="text" placeholder="enter senario name" />
-            <label for="sernario_name">Scenario Name</label>
-        </div>
-
-        <div class="textarea">
-            <textarea placeholder="Enter your senario here!" rows="20" id="senario_text" cols="40" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
-        </div>
-
-        <div class="configuration">
-            <i class="fas fa-cog fa-2x tooltipped" data-position="down" data-tooltip="configure senario"></i>
-        </div>
-
-        <div class="created-senario-container">
-            <h6>Created Senarios</h6>
-
-            <div class="list-items">
-                <ul class="created-senario-list">
-                    <li class="item">
-                        <h5>Test</h5>
-                    </li>
-                    <li class="item">
-                        <h5>Test</h5>
-                    </li>
-                    <li class="item">
-                        <h5>Test</h5>
-                    </li>
-
-                </ul>
+            <img src="/assets/sblogo.png" style="position: absolute; width: 20%; margin: auto !important; display: block;">
+            <div class="t-form" style="position: relative; top: 120px; z-index: 100; color: grey; margin-left: 50px; width: 40%; display: inline-block; float: left;">
+                <p>Scenario Name</p>
+                <input class="t-input" placeholder="Please enter a scenario name" style="width: 80%;">
+                <p>Scenario Text</p>
+                <textarea class="t-input t-textarea" placeholder="Please enter a scenario text" style="width: 80%;"></textarea>
             </div>
+            <div class="t-form" style="position: relative; top: 120px; z-index: 100; color: grey; margin-left: 50px; width: 50%; display: inline-block;">
+
+                <span class="fa fa-plus-circle fa-3x fa-custom"></span><p>Add Option</p>
+            </div>
+
         </div>
+        <div class="container">
+            <!--Center div-->
+            <div class="created-senario-container" style="color: white; opacity: 0.7;">
+                <h6>Created Senarios</h6>
+                <hr style="width: 80%;">
 
-        <div class="add-option-button">
-            <a class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="right" data-tooltip="add option"><i class="fas fa-plus"></i></a>
-        </div>
+                <div class="list-items">
+                    <table class="created-senario-list table">
+                        <tbody>
+                            <tr>
+                                <td class="item">
+                                    <h5>Test</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="item">
+                                    <h5>Test</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="item">
+                                    <h5>Test</h5>
+                                </td>
+                            </tr>
 
-        <div class="option-container">
-            <input id="option_name" type="text" placeholder="enter option name" />
-
-            <div class="linked-senario">
-                <div class="input-field col s12">
-                    <select class="linked-senario">
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
-                    <label>Choose Linked Senario</label>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            <div class="close">
-                <a class="waves-effect waves-light btn">Close</a>
+
+
+
+
+            <div class="add-to-tree">
+                <a class="waves-effect waves-light btn" style="/* position: absolute; */
+    bottom: 50px; right: 30px;">Add to senario tree</a>
             </div>
-
         </div>
 
-        <div class="add-to-tree">
-            <a class="waves-effect waves-light btn">Add to senario tree</a>
-        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="main.js"></script>
+
     </div>
 
 </asp:Content>
