@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Senario Builder</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+     <div class="button-container">
+        <a class="btn-floating btn-large waves-effect waves-light red"><i class="fas fa-plus"></i></a> 
+    </div>
+
+    <div class="senario-container">
+        <h6>Created Senarios</h6>
+
+        <div class="list-itmes">
+            <ul class="list-item-nav" id="Add-item">
+                <li class="item"><h5>Test Li</h5></li>
+                <li class="item"><h5>Test Li</h5></li>
+                <li class="item"><h5>Test Li</h5></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="flex">
+        <input class="input" type="text" id="name" placeholder="Senario Name">
+    </div>
+
+    <div class="container flex">        
+        <textarea placeholder="Enter your senario here!" rows="20" id="senario_text" cols="40" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+    </div>  
+    
+    <div class="container flex">        
+        <a class="button waves-effect waves-light btn"><i class="material-icons left" onclick="AddElement()"></i>Add option</a>
+    </div> 
+    
+    <div class="add-option-container">
+            <input class="option-input" type="text" id="option-text" placeholder="add option name" />
+
+            <a class="add-btn btn-floating btn-large waves-effect waves-light black tooltipped" data-position="right" data-tooltip="Add new Effect / Action"><i class="fas fa-plus"></i></a> 
+           
+            <div class="input-field col s12">
+                    <select>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                    <label>Select linked senario</label>
+                  </div>
+                
+                  <a class="button waves-effect waves-light btn"><i class="material-icons left"></i>Add sernario</a>
+    </div>
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
