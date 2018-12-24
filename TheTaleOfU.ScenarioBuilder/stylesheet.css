@@ -48,6 +48,7 @@ body {
 .fa-custom {
     color: #a936f1;
 }
+
 .content {
     max-height: 0;
     position: relative;
@@ -74,18 +75,24 @@ body {
     margin-bottom: 25px;
 }
 
-.created-senario-container {
+.created-scenario-container {
     position: absolute;
     top: 0;
     right: 0;
     background-color: RGB(24,24,24);
     width: 350px;
     height: 100%;
+    color: white;
+    opacity: 0.7;
 }
 
-    .created-senario-container h6 {
-        text-align: center;
+    .created-scenario-container hr {
+        width: 80%;
     }
+
+.created-senario-container h6 {
+    text-align: center;
+}
 
 .item {
     text-align: center;
@@ -145,4 +152,111 @@ textarea {
     position: absolute;
     bottom: 25px;
     right: 385px;
+}
+
+    .add-to-tree a {
+        bottom: 50px;
+        right: 30px;
+    }
+
+
+.sblogo {
+    position: absolute;
+    width: 20%;
+    margin: auto !important;
+    display: block;
+}
+
+.t-form {
+    position: relative;
+    top: 120px;
+    z-index: 100;
+    color: grey;
+    margin-left: 50px;
+    display: inline-block;
+    float: left;
+}
+
+.t-input, t-textarea {
+    width: 80%;
+}
+
+
+.t-form-40 {
+    width: 40%;
+}
+
+.t-form-50 {
+    width: 50%;
+}
+
+.t-collapsable, t-option {
+    border-radius: 20px 0;
+}
+
+.t-collapsable-head {
+    min-height: 45px;
+    position: relative;
+    background-color: gainsboro;
+    border-radius: 20px 20px 0 0;
+    border: 1px solid black;
+    width: 100%;
+}
+
+    .t-collapsable-head .fa {
+        color: white;
+        position: absolute;
+        padding-top: 10px;
+        padding-left: 10px;
+        width: 20%;
+        display: inline-block;
+    }
+
+    .t-collapsable-head p {
+        font-size: 2em;
+        position: absolute;
+        top: -35px;
+        right: 5%;
+        color: whitesmoke;
+    }
+
+.t-collapsable-content {
+    min-height: 300px;
+    border-radius: 0 0 20px 20px;
+    border: 1px solid black;
+}
+
+.t-clearfix {
+    margin-top: 20px;
+}
+
+.t-collapsable-form {
+    padding-left: 20px;
+}
+
+.t-button {
+    width: 25%;
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #a936f1;
+    color: whitesmoke;
+}
+
+.t-icontext {
+    margin-left: 10px;
+    padding: 10px;
+    position: relative;
+    bottom: 10px;
+    font-size: 1.1em;
+}
+
+.t-select {
+    width: 80%;
+}
+
+
+span.fa.fa-3x.fa-custom.fa-plus-circle:hover {
+    color: #7625A8;
+    cursor: pointer;
 }
