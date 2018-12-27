@@ -18,25 +18,47 @@
                 <p>Add Option</p>
                 <div class="js-addedoptions">
                     <div class="t-collapsable t-option">
-                        <div class="t-collapsable-head">
-                            <span class="fa fa-chevron-down js-optionchevron fa-2x"></span>
-                            <p>
-                                Option 1
-                            </p>
+                        <div class="t-collapsable-head ">
+                            <span class="fa js-optionchevron fa-2x fa-chevron-down"></span>
+                            <input type="text" placeholder="Enter option name">
                         </div>
-                        <div class="t-collapsable-content">
+                        <div class="t-collapsable-content" style="">
                             <div class="t-clearfix">
                                 <div class="t-collapsable-form">
                                     <p>Option text</p>
                                     <input class="t-input js-optiontext" placeholder="Please enter some option text"><br>
 
 
-                                    <div class="t-button">
-                                        <span class="fa fa-vial fa-3x"></span><span class="t-icontext">Add Effect</span>
 
 
+                                    <div class="hexagon-holder">
+                                        <div class="hexagon">
+                                        </div>
+                                        <p class="hexagon-text">
+                                            Add effect
+                                        </p>
+                                        <span class="fa fa-vial fa-2x fa-hexagon-icon"></span>
                                     </div>
-                                    <p>Add a linked scenario (optional)</p>
+
+
+                                    <div class="hexagon-holder">
+
+                                        <div class="hexagon">
+                                        </div>
+
+                                        <p class="hexagon-text">
+                                            Add enemy
+                                        </p>
+                                        <span class="fa fa-user-ninja fa-2x fa-hexagon-icon"></span>
+                                    </div>
+
+
+
+
+
+                                    <p style="margin-top: 25px;">
+                                        Add next step (optional)
+                                    </p>
                                     <div class="t-select" style="width: 80%;">
                                         <select class="js-scenariolinkdropdown" tabindex="-1">
                                         </select>
@@ -48,54 +70,55 @@
                         </div>
 
                     </div>
-
                 </div>
-            </div>
 
+            </div>
         </div>
-        <div class="container">
-            <!--Center div-->
-            <div class="created-scenario-container">
-                <h6>Created Scenarios</h6>
-                <hr>
 
-                <div class="list-items">
-                    <table class="created-senario-list table">
-                        <tbody>
-                            <tr>
-                                <td class="item">
-                                    <h5>Test</h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="item">
-                                    <h5>Test</h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="item">
-                                    <h5>Test</h5>
-                                </td>
-                            </tr>
+    </div>
+    <div class="container">
+        <!--Center div-->
+        <div class="created-scenario-container">
+            <h6>Created Scenarios</h6>
+            <hr>
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <div class="list-items">
+                <table class="created-senario-list table">
+                    <tbody>
+                        <tr>
+                            <td class="item">
+                                <h5>Test</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="item">
+                                <h5>Test</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="item">
+                                <h5>Test</h5>
+                            </td>
+                        </tr>
 
-
-
-
-
-            <div class="add-to-tree">
-                <a class="waves-effect waves-light btn">Add to senario tree</a>
+                    </tbody>
+                </table>
             </div>
         </div>
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="main.js"></script>
-        <script src="Scripts/scenariobuilder.js"></script>
+
+
+
+        <div class="add-to-tree">
+            <a class="waves-effect waves-light btn">Add to senario tree</a>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="main.js"></script>
+    <script src="Scripts/scenariobuilder.js"></script>
 
     </div>
 

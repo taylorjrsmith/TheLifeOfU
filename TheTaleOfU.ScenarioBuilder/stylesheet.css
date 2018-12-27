@@ -192,33 +192,88 @@ textarea {
 
 .t-collapsable, t-option {
     border-radius: 20px 0;
+    margin-bottom: 10px;
 }
+
+.t-collapsable-head input {
+    background-color: #002e3f !important;
+    border: 1px solid #41afc6 !important;
+    color: white !important;
+    width: 50% !important;
+    margin-left: 45% !important;
+    border-radius: 5px !important;
+    height: 90% !important;
+    margin-top: 10px !important;
+    padding: 10px !important;
+}
+
+    .t-collapsable-head input::placeholder {
+        position: relative;
+        left: 5px;
+        color: white;
+    }
+
+
+
+.hexagon-holder {
+    width: 70px;
+    display: inline-block;
+    position: relative
+}
+
+.hexagon-text {
+    position: absolute;
+    left: 0;
+    top: 30px;
+    width: 55px;
+    margin: 10px 2.5px 0 2.5px;
+    font-size: 9px;
+    background-color: black;
+    color: white;
+    padding: 4px;
+    border-radius: 5px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.fa-hexagon-icon {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    left: 17px;
+    color: white;
+}
+
 
 .t-collapsable-head {
     min-height: 45px;
     position: relative;
-    background-color: gainsboro;
-    border-radius: 20px 20px 0 0;
+    background-color: RGB(24,24,24);
+    border-radius: 10px 10px 0 0;
     border: 1px solid black;
     width: 100%;
 }
 
-    .t-collapsable-head .fa {
-        color: white;
-        position: absolute;
-        padding-top: 10px;
-        padding-left: 10px;
-        width: 20%;
-        display: inline-block;
-    }
+.t-collapsable-head-closed {
+    border-radius: 10px;
+}
 
-    .t-collapsable-head p {
-        font-size: 2em;
-        position: absolute;
-        top: -35px;
-        right: 5%;
-        color: whitesmoke;
-    }
+.t-collapsable-head .fa {
+    color: white;
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 20%;
+    display: inline-block;
+}
+
+.t-collapsable-head p {
+    font-size: 2em;
+    position: absolute;
+    top: -35px;
+    right: 5%;
+    color: whitesmoke;
+}
 
 .t-collapsable-content {
     min-height: 300px;
@@ -260,3 +315,43 @@ span.fa.fa-3x.fa-custom.fa-plus-circle:hover {
     color: #7625A8;
     cursor: pointer;
 }
+
+
+.hexagon {
+    position: relative;
+    width: 60px;
+    height: 34.64px;
+    background-color: #a936f1;
+    margin: 17.32px 0;
+    border-left: solid 3px #333333;
+    border-right: solid 3px #333333;
+    z-index: 1;
+}
+
+    .hexagon:before,
+    .hexagon:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        width: 42.43px;
+        height: 42.43px;
+        -webkit-transform: scaleY(0.5774) rotate(-45deg);
+        -ms-transform: scaleY(0.5774) rotate(-45deg);
+        transform: scaleY(0.5774) rotate(-45deg);
+        background-color: inherit;
+        left: 5.7868px;
+    }
+
+    .hexagon:before {
+        top: -21.2132px;
+        border-top: solid 4.2426px #333333;
+        border-right: solid 4.2426px #333333;
+        z-index: 1;
+    }
+
+    .hexagon:after {
+        bottom: -21.2132px;
+        border-bottom: solid 4.2426px #333333;
+        border-left: solid 4.2426px #333333;
+        z-index: 1;
+    }
