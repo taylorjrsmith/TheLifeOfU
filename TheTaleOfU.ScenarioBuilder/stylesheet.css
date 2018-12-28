@@ -109,7 +109,20 @@ textarea {
     border: none;
     margin: 0px;
     height: 215px;
+    background-color: #002e3f;
+    border-radius: 5px;
+    border: 2px solid #41afc6;
+    color:white;
+    font-size:18px;
+    padding:5px;
 }
+
+    textarea::placeholder {
+        font-size: 18px;
+        color: white;
+        padding: 5px;
+    }
+
 
 
 
@@ -193,6 +206,7 @@ textarea {
 .t-collapsable, t-option {
     border-radius: 20px 0;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .t-collapsable-head input {
@@ -220,6 +234,69 @@ textarea {
     display: inline-block;
     position: relative
 }
+
+.hexagon-small-holder {
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    width: 100px;
+    height: 60px;
+    border-top: 3px solid #41afc6;
+    border-left: 3px solid #41afc6;
+    border-radius: 20px 0;
+    background-color: RGB(24,24,24);
+}
+
+.hexagon-small {
+    position: relative;
+    width: 40px;
+    height: 23.09px;
+    background-color: #ff0006;
+    margin: 11.55px 0;
+    border-left: solid 2px #333333;
+    border-right: solid 2px #333333;
+}
+
+.fa-delete {
+    position: absolute;
+    right: 39px;
+    bottom: 22px;
+    color: white;
+    z-index: 1;
+}
+
+.hexagon-small-pos {
+    position: absolute;
+    right: 25px;
+    bottom: 5px;
+}
+
+.hexagon-small:before,
+.hexagon-small:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 28.28px;
+    height: 28.28px;
+    -webkit-transform: scaleY(0.5774) rotate(-45deg);
+    -ms-transform: scaleY(0.5774) rotate(-45deg);
+    transform: scaleY(0.5774) rotate(-45deg);
+    background-color: inherit;
+    left: 3.8579px;
+}
+
+.hexagon-small:before {
+    top: -14.1421px;
+    border-top: solid 2.8284px #333333;
+    border-right: solid 2.8284px #333333;
+}
+
+.hexagon-small:after {
+    bottom: -14.1421px;
+    border-bottom: solid 2.8284px #333333;
+    border-left: solid 2.8284px #333333;
+}
+
 
 .hexagon-text {
     position: absolute;
@@ -287,6 +364,7 @@ textarea {
 
 .t-collapsable-form {
     padding-left: 20px;
+    position: relative;
 }
 
 .t-button {
@@ -354,4 +432,9 @@ span.fa.fa-3x.fa-custom.fa-plus-circle:hover {
         border-bottom: solid 4.2426px #333333;
         border-left: solid 4.2426px #333333;
         z-index: 1;
+    }
+
+    .hexagon:hover {
+        background-color: #7625A8;
+        cursor: pointer;
     }

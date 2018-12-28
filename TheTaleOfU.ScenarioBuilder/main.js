@@ -17,7 +17,7 @@ for (var i = 0; i < collapse.length; i++) {
 
 $(document).ready(function () {
     $('.tooltipped').tooltip();
-    $('select').formSelect();
+   
 });
 
 
