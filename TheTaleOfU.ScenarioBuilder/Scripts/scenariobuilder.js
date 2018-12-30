@@ -25,6 +25,7 @@
         console.log(constructedScenario);
         scenarioList.push(constructedScenario);
         $(".created-senario-list").append("<tr><td class='item'><h5>" + constructedScenario.ScenarioName + "</h5></td></tr>");
+        rebind();
 
     });
 
@@ -35,24 +36,44 @@
 
         $.each(scenario.Options, function (i, value) {
             $(".js-addedoptions").append(ScenarioOptionContainerTemplate);
-            var option = $("t-option").last();
-            var currentForm = $(option).parents(".t-option").children(".t-collapsable-content").children(".t-clearfix").children(".t-collapsable-form");
+            var option = $(".t-option").last();
+            var optionChevron = $(".js-optionchevron").last();
+            var currentForm = $(option).children(".t-collapsable-content").children(".t-clearfix").children(".t-collapsable-form");
             currentForm.children(".js-optiontext").val(value.OptionText);
-            $(element).children(".t-collapsable-head").find("input").val(value.OptionName);
+            $(option).children(".t-collapsable-head").find("input").val(value.OptionName);
+            closeOption(optionChevron);
             //todo populate the dropdown
         });
+        rebind();
     }
 
+
+    function filterScenarioByScenarioName(scenario, scenarioName) {
+        return scenario.ScenarioName === scenarioName;
+    }
 
     function rebind() {
         $(".js-optionchevron").unbind();
         $(".js-hexagon-delete").unbind();
+        $(".item").unbind();
 
         $(".js-hexagon-delete").on("click", function () {
             $(this).closest(".t-option").remove();
             if ($(".js-option").length === 0)
                 setAddOptionEnabled();
-        })
+        });
+
+        $(".item").on("click", function () {
+            $(".t-option").each(function (i, value) {
+                $(value).remove();
+            });
+
+            var scenarioName = $(this).find("h5").text();
+            var scenario = scenarioList.filter(function (scenario) { return scenario.ScenarioName == scenarioName });
+            console.log(scenario);
+            populateScenario(scenario[0]);
+
+        });
 
         $(".js-optiontext, .js-optionname").on("blur", function () {
             if (checkOptionIsPopulated($(this)))
@@ -117,6 +138,13 @@
         return { ScenarioName: scenarioName, ScenarioDescription: scenarioDescription, Options: options };
     };
 
+    var closeOption = function (option) {
+        $(option).removeClass("fa-chevron-down");
+        $(option).addClass("fa-chevron-up");
+        $(option).parents(".t-option").children(".t-collapsable-content").fadeOut();
+        $(option).parents(".t-option").children(".t-collapsable-head").addClass("t-collapsable-head-closed");
+    }
+
 
     var AddOption = function () {
         var canAppend = true;
@@ -125,10 +153,7 @@
             canAppend = checkOptionIsPopulated($(value));
             if (!canAppend)
                 return;
-            $(value).removeClass("fa-chevron-down");
-            $(value).addClass("fa-chevron-up");
-            $(value).parents(".t-option").children(".t-collapsable-content").fadeOut();
-            $(this).parents(".t-option").children(".t-collapsable-head").addClass("t-collapsable-head-closed");
+            closeOption($(value));
         });
         if (canAppend)
             $(".js-addedoptions").append(ScenarioOptionContainerTemplate);

@@ -116,13 +116,12 @@
     <div class="container">
         <!--Center div-->
         <div class="created-scenario-container">
-            <h6>Created Scenarios</h6>
+            <h6 style="text-align: center;">Created Scenarios</h6>
             <hr>
 
             <div class="list-items">
                 <table class="created-senario-list table">
                     <tbody>
-                       
                     </tbody>
                 </table>
             </div>
@@ -133,7 +132,7 @@
 
 
         <div class="add-to-tree">
-            <a class="waves-effect waves-light btn js-addscenariototree">Add to senario tree</a>
+            <a class="waves-effect waves-light btn js-addscenariototree">Update scenario tree</a>
         </div>
     </div>
 
