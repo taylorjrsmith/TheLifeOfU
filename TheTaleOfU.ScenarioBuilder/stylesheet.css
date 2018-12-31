@@ -28,9 +28,35 @@ body {
     border-radius: 5px;
 }
 
-    .active, .collapse:hover {
-        background-color: #ccc;
-    }
+h5 {
+    display: inline-block;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+}
+
+.material-tooltip {
+    margin-left: 10px !important;
+}
+
+.dot-complete {
+    background-color: lightgreen;
+}
+
+.dot-incomplete {
+    background-color: orange;
+}
+
+.active, .collapse:hover {
+    background-color: #ccc;
+}
 
 .fa:hover, .hexagon-small-holder:hover {
     cursor: pointer;

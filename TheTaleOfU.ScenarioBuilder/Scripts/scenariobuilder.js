@@ -32,7 +32,8 @@
         if (filteredList.length > 0) {
             scenarioList = scenarioList.filter(function (scenario) { return scenario.ScenarioName !== constructedScenario.ScenarioName; });
         } else {
-            $(".created-senario-list").append("<tr><td class='item'><h5>" + constructedScenario.ScenarioName + "</h5></td></tr>");
+            $(".created-senario-list").append("<tr><td class='item'><h5>" + constructedScenario.ScenarioName + "</h5><div class='dot' data-position='right'></div></td></tr>");
+
         }
         scenarioList.push(constructedScenario);
         rebind();
@@ -59,6 +60,25 @@
         rebind(true);
     }
 
+    var appendStatusClassForScenario = function (scenarioName) {
+        var scenario = scenarioList.filter(function (scenario) { return scenario.ScenarioName === scenarioName; })[0];
+
+        var scenarioTableRow = $(".item").find("h5:contains(" + scenarioName + ")").parents(".item").children(".dot");
+
+        var incompleteOptions = scenario.Options.filter(function (option) { return option.LinkedScenarioName === "" || option.LinkedScenarioName === undefined; });
+
+        if (incompleteOptions.length == 0) {
+            scenarioTableRow.addClass("dot-complete");
+            scenarioTableRow.removeClass("dot-incomplete");
+            scenarioTableRow.attr("data-tooltip", "all options set");
+        } else {
+            scenarioTableRow.addClass("dot-incomplete");
+            scenarioTableRow.removeClass("dot-complete");
+            scenarioTableRow.attr("data-tooltip", "options need next steps");
+        }
+    };
+
+
     function populateDropdown(tOption) {
         var scenarioName = $(".js-scenarioname").val();
         var currentScenario = scenarioList.filter(function (scenario) { return scenario.ScenarioName === scenarioName; })[0];
@@ -70,7 +90,7 @@
         $.each(dropdown.find("option"), function (i, value) {
             $(value).remove();
         });
-        scenarioList.forEach(function (scenario) {
+        scenarioList.filter(function (scenario) { return scenario.ScenarioName !== scenarioName; }).forEach(function (scenario) {
             dropdown.append("<option value=" + scenario.ScenarioName + ">" + scenario.ScenarioName + "</option>");
         });
 
@@ -139,6 +159,14 @@
 
         if (!doNotRebindSelect)
             $('select').formSelect();
+
+
+
+        $.each(scenarioList, function (i, value) {
+            appendStatusClassForScenario(value.ScenarioName);
+        });
+
+        $(".dot").tooltip();
     }
 
 
