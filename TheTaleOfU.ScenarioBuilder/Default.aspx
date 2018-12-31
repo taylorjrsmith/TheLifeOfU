@@ -2,6 +2,19 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container body-content">
+
+        <style>
+            /* style the elements with CSS */
+            #pleaserotate-graphic {
+                fill: #fff;
+            }
+
+            #pleaserotate-backdrop {
+                color: #fff;
+                background-color: #000;
+            }
+        </style>
+
         <div class="t-box" style="width: 1500px; height: 850px; color: white; background-color: white; opacity: 0.9; margin: 0 !important; position: absolute; top: 60px; left: 25px; border-radius: 15px; border: 2px solid lavenderblush; position: absolute;">
             <img src="/assets/logo.png" style="width: 200px; position: absolute; top: 0; left: 0; margin: 20px;">
 
@@ -41,6 +54,9 @@
                 </div>
 
             </div>
+
+
+
 
 
 

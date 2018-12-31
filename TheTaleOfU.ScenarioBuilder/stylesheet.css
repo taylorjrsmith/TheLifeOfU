@@ -7,6 +7,23 @@ body {
     background-repeat: no-repeat;
 }
 
+@media only screen and (max-height: 600px) {
+    html, body {
+        width: 1800px;
+        height: 500px;
+    }
+
+    .created-scenario-container {
+        width: 250px !important;
+        right: -820px !important;
+    }
+
+    .add-to-tree {
+        bottom: -400px !important;
+        right: -540px !important;
+    }
+}
+
 /* Centers all content in this container */
 .container, .center {
     width: 40em;
