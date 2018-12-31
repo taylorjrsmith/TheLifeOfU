@@ -32,6 +32,10 @@ body {
         background-color: #ccc;
     }
 
+.fa:hover, .hexagon-small-holder:hover {
+    cursor: pointer;
+}
+
 #name {
     width: 350px;
 }
@@ -112,9 +116,9 @@ textarea {
     background-color: #002e3f;
     border-radius: 5px;
     border: 2px solid #41afc6;
-    color:white;
-    font-size:18px;
-    padding:5px;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
 }
 
     textarea::placeholder {

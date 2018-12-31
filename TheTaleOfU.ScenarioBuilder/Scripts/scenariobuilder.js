@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     var ScenarioOptionContainerTemplate = $(".t-option").parent().html();
-    $('select').formSelect();
+
     setAddOptionDisabled();
     rebind();
 
@@ -21,13 +21,23 @@
 
 
     $(".js-addscenariototree").on("click", function () {
+        updateScenarioTree();
+    });
+
+    function updateScenarioTree() {
         var constructedScenario = constructScenario();
         console.log(constructedScenario);
+        var filteredList = scenarioList.filter(function (scenario) { return scenario.ScenarioName === constructedScenario.ScenarioName; });
+
+        if (filteredList.length > 0) {
+            scenarioList = scenarioList.filter(function (scenario) { return scenario.ScenarioName !== constructedScenario.ScenarioName; });
+        } else {
+            $(".created-senario-list").append("<tr><td class='item'><h5>" + constructedScenario.ScenarioName + "</h5></td></tr>");
+        }
         scenarioList.push(constructedScenario);
-        $(".created-senario-list").append("<tr><td class='item'><h5>" + constructedScenario.ScenarioName + "</h5></td></tr>");
         rebind();
 
-    });
+    }
 
 
     function populateScenario(scenario) {
@@ -42,9 +52,36 @@
             currentForm.children(".js-optiontext").val(value.OptionText);
             $(option).children(".t-collapsable-head").find("input").val(value.OptionName);
             closeOption(optionChevron);
+            populateDropdown(option);
             //todo populate the dropdown
         });
-        rebind();
+        openOption($(".js-optionchevron").first());
+        rebind(true);
+    }
+
+    function populateDropdown(tOption) {
+        var scenarioName = $(".js-scenarioname").val();
+        var currentScenario = scenarioList.filter(function (scenario) { return scenario.ScenarioName === scenarioName; })[0];
+        var option = $(tOption);
+        var currentForm = $(option).children(".t-collapsable-content").children(".t-clearfix").children(".t-collapsable-form");
+        var dropdown = currentForm.children(".t-select").children(".js-scenariolinkdropdown");
+        var dropdownValue = dropdown.find("option:selected");
+        dropdown.data("previousValue", dropdownValue);
+        $.each(dropdown.find("option"), function (i, value) {
+            $(value).remove();
+        });
+        scenarioList.forEach(function (scenario) {
+            dropdown.append("<option value=" + scenario.ScenarioName + ">" + scenario.ScenarioName + "</option>");
+        });
+
+        var optionName = currentForm.children(".js-optiontext").val();
+        var optionLinkedScenario = currentScenario.Options.filter(function (option) { return option.OptionName === optionName; })[0];
+
+        if (optionLinkedScenario !== "" || optionLinkedScenario !== undefined)
+            dropdown.find("option:contains(" + optionLinkedScenario.LinkedScenarioName + ")").prop("selected", true);
+
+        $('select').formSelect();
+
     }
 
 
@@ -52,7 +89,7 @@
         return scenario.ScenarioName === scenarioName;
     }
 
-    function rebind() {
+    function rebind(doNotRebindSelect) {
         $(".js-optionchevron").unbind();
         $(".js-hexagon-delete").unbind();
         $(".item").unbind();
@@ -64,6 +101,7 @@
         });
 
         $(".item").on("click", function () {
+            updateScenarioTree();
             $(".t-option").each(function (i, value) {
                 $(value).remove();
             });
@@ -99,7 +137,8 @@
 
         });
 
-        $('select').formSelect();
+        if (!doNotRebindSelect)
+            $('select').formSelect();
     }
 
 
@@ -145,6 +184,13 @@
         $(option).parents(".t-option").children(".t-collapsable-head").addClass("t-collapsable-head-closed");
     }
 
+    var openOption = function (option) {
+        $(option).removeClass("fa-chevron-up");
+        $(option).addClass("fa-chevron-down");
+        $(option).parents(".t-option").children(".t-collapsable-content").fadeIn();
+        $(option).parents(".t-option").children(".t-collapsable-head").removeClass("t-collapsable-head-closed");
+    }
+
 
     var AddOption = function () {
         var canAppend = true;
@@ -164,7 +210,7 @@
         var currentForm = $(element).parents(".t-option").children(".t-collapsable-content").children(".t-clearfix").children(".t-collapsable-form");
         var optionText = currentForm.children(".js-optiontext").val();
         var optionName = $(element).parents(".t-collapsable-head").find("input").val();
-        var linkedScenario = currentForm.children(".js-scenariolinkdropdown").find("option:selected").val();
+        var linkedScenario = currentForm.children(".t-select").find(".js-scenariolinkdropdown").find("option:selected").val();
         //TODO include attached effect
 
         return { OptionText: optionText, LinkedScenarioName: linkedScenario, OptionName: optionName };
