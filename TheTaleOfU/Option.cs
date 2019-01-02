@@ -18,6 +18,7 @@ namespace TheTaleOfU
         [ForeignKey("NextScenarioId")]
         public virtual Scenario NextScenario { get; set; }
         public int OptionIdentifier { get; set; }
+        public List<GainItemEvent> GainItemEvents { get; set; }
 
     }
 }

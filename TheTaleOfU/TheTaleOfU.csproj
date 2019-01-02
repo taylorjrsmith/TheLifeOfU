@@ -52,6 +52,7 @@
     <Compile Include="Enums\CompanionType.cs" />
     <Compile Include="Enums\ItemType.cs" />
     <Compile Include="Enums\PlayerType.cs" />
+    <Compile Include="GainItemEvent.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Migrations\201812131324026_LocalDeploy.cs" />
     <Compile Include="Migrations\201812131324026_LocalDeploy.Designer.cs">

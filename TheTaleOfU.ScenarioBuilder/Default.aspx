@@ -103,6 +103,17 @@
                                         <span class="fa fa-user-ninja fa-2x fa-hexagon-icon"></span>
                                     </div>
 
+                                    <div class="hexagon-holder">
+
+                                        <div class="hexagon">
+                                        </div>
+
+                                        <p class="hexagon-text">
+                                            Gain item
+                                        </p>
+                                        <span class="fa fa-suitcase fa-2x fa-hexagon-icon"></span>
+                                    </div>
+
                                     <p style="margin-top: 25px;">
                                         Add next step (optional)
                                     </p>
