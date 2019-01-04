@@ -73,60 +73,58 @@
                             <span class="fa js-optionchevron fa-2x fa-chevron-down"></span>
                             <input type="text" class="js-optionname" placeholder="Enter option name">
                         </div>
-                        <div class="t-collapsable-content" style="">
-                            <div class="t-clearfix">
-                                <div class="t-collapsable-form">
-                                    <p>Option text</p>
-                                    <input class="t-input js-optiontext" placeholder="Please enter some option text"><br>
+                        <div class="t-collapsable-content">
+                            <div class="t-collapsable-form">
+                                <p>Option text</p>
+                                <input class="t-input js-optiontext" placeholder="Please enter some option text"><br>
 
 
 
 
-                                    <div class="hexagon-holder">
-                                        <div class="hexagon">
-                                        </div>
-                                        <p class="hexagon-text">
-                                            Add effect
-                                        </p>
-                                        <span class="fa fa-vial fa-2x fa-hexagon-icon"></span>
+                                <div class="hexagon-holder">
+                                    <div class="hexagon">
                                     </div>
-
-
-                                    <div class="hexagon-holder">
-
-                                        <div class="hexagon">
-                                        </div>
-
-                                        <p class="hexagon-text">
-                                            Add enemy
-                                        </p>
-                                        <span class="fa fa-user-ninja fa-2x fa-hexagon-icon"></span>
-                                    </div>
-
-                                    <div class="hexagon-holder">
-
-                                        <div class="hexagon">
-                                        </div>
-
-                                        <p class="hexagon-text">
-                                            Gain item
-                                        </p>
-                                        <span class="fa fa-suitcase fa-2x fa-hexagon-icon"></span>
-                                    </div>
-
-                                    <p style="margin-top: 25px;">
-                                        Add next step (optional)
+                                    <p class="hexagon-text">
+                                        Add effect
                                     </p>
-                                    <div class="t-select" style="width: 80%;">
-                                        <select class="js-scenariolinkdropdown" tabindex="-1">
-                                        </select>
+                                    <span class="fa fa-vial fa-2x fa-hexagon-icon"></span>
+                                </div>
+
+
+                                <div class="hexagon-holder">
+
+                                    <div class="hexagon">
                                     </div>
 
-                                    <div class="hexagon-small-holder js-hexagon-delete">
-                                        <div class="hexagon-small hexagon-small-pos" style="position: absolute; right: 25px; bottom: 5px;">
-                                        </div>
-                                        <span class="fa fa-trash-alt fa-delete"></span>
+                                    <p class="hexagon-text">
+                                        Add enemy
+                                    </p>
+                                    <span class="fa fa-user-ninja fa-2x fa-hexagon-icon"></span>
+                                </div>
+
+                                <div class="hexagon-holder">
+
+                                    <div class="hexagon">
                                     </div>
+
+                                    <p class="hexagon-text">
+                                        Gain item
+                                    </p>
+                                    <span class="fa fa-suitcase fa-2x fa-hexagon-icon"></span>
+                                </div>
+
+                                <p style="margin-top: 25px;">
+                                    Add next step (optional)
+                                </p>
+                                <div class="t-select" style="width: 80%;">
+                                    <select class="js-scenariolinkdropdown" tabindex="-1">
+                                    </select>
+                                </div>
+
+                                <div class="hexagon-small-holder js-hexagon-delete">
+                                    <div class="hexagon-small hexagon-small-pos" style="position: absolute; right: 25px; bottom: 5px;">
+                                    </div>
+                                    <span class="fa fa-trash-alt fa-delete"></span>
                                 </div>
                             </div>
 

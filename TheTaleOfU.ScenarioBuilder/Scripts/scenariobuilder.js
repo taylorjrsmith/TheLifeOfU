@@ -5,11 +5,12 @@
 
 $(document).ready(function () {
     var ScenarioOptionContainerTemplate = $(".t-option").parent().html();
+    var scenarioList = [];
 
     setAddOptionDisabled();
     rebind();
 
-    var scenarioList = [];
+
 
 
     $(".js-lr-chevron").on("click", function () {
@@ -54,7 +55,7 @@ $(document).ready(function () {
             $(".js-addedoptions").append(ScenarioOptionContainerTemplate);
             var option = $(".t-option").last();
             var optionChevron = $(".js-optionchevron").last();
-            var currentForm = $(option).children(".t-collapsable-content").children(".t-clearfix").children(".t-collapsable-form");
+            var currentForm = $(option).children(".t-collapsable-content").children(".t-collapsable-form");
             currentForm.children(".js-optiontext").val(value.OptionText);
             $(option).children(".t-collapsable-head").find("input").val(value.OptionName);
             closeOption(optionChevron);
@@ -88,7 +89,7 @@ $(document).ready(function () {
         var scenarioName = $(".js-scenarioname").val();
         var currentScenario = scenarioList.filter(function (scenario) { return scenario.ScenarioName === scenarioName; })[0];
         var option = $(tOption);
-        var currentForm = $(option).children(".t-collapsable-content").children(".t-clearfix").children(".t-collapsable-form");
+        var currentForm = $(option).children(".t-collapsable-content").children(".t-collapsable-form");
         var dropdown = currentForm.children(".t-select").children(".js-scenariolinkdropdown");
         var dropdownValue = dropdown.find("option:selected");
         dropdown.data("previousValue", dropdownValue);
@@ -149,12 +150,12 @@ $(document).ready(function () {
             var isOpen = $(this).hasClass("fa-chevron-down");
 
             if (isOpen) {
-                $(this).parents(".t-option").children(".t-collapsable-content").fadeOut();
+                closeOption($(this));
                 $(this).parents(".t-option").children(".t-collapsable-head").addClass("t-collapsable-head-closed");
                 $(this).removeClass("fa-chevron-down");
                 $(this).addClass("fa-chevron-up");
             } else {
-                $(this).parents(".t-option").children(".t-collapsable-content").fadeIn();
+                openOption($(this));
                 $(this).parents(".t-option").children(".t-collapsable-head").removeClass("t-collapsable-head-closed");
                 $(this).removeClass("fa-chevron-up");
                 $(this).addClass("fa-chevron-down");
@@ -213,14 +214,14 @@ $(document).ready(function () {
     var closeOption = function (option) {
         $(option).removeClass("fa-chevron-down");
         $(option).addClass("fa-chevron-up");
-        $(option).parents(".t-option").children(".t-collapsable-content").fadeOut();
+        $(option).parents(".t-option").children(".t-collapsable-content").children(".t-collapsable-form").animate({ height: 'toggle' }, 350);
         $(option).parents(".t-option").children(".t-collapsable-head").addClass("t-collapsable-head-closed");
     }
 
     var openOption = function (option) {
         $(option).removeClass("fa-chevron-up");
         $(option).addClass("fa-chevron-down");
-        $(option).parents(".t-option").children(".t-collapsable-content").fadeIn();
+        $(option).parents(".t-option").children(".t-collapsable-content").children(".t-collapsable-form").animate({ height: 'toggle' }, 350);
         $(option).parents(".t-option").children(".t-collapsable-head").removeClass("t-collapsable-head-closed");
     }
 
@@ -240,7 +241,7 @@ $(document).ready(function () {
 
     var getOption = function (element) {
         element = $(element);
-        var currentForm = $(element).parents(".t-option").children(".t-collapsable-content").children(".t-clearfix").children(".t-collapsable-form");
+        var currentForm = $(element).parents(".t-option").children(".t-collapsable-content").children(".t-collapsable-form");
         var optionText = currentForm.children(".js-optiontext").val();
         var optionName = $(element).parents(".t-collapsable-head").find("input").val();
         var linkedScenario = currentForm.children(".t-select").find(".js-scenariolinkdropdown").find("option:selected").val();
