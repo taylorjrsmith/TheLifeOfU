@@ -11,11 +11,14 @@ $(document).ready(function () {
 
 
     $(".js-sendrequest").on("click", function () {
-        console.log("sending payload: " + scenarioList);
+        console.log("sending payload: " + JSON.stringify(scenarioList));
         $.ajax(
             {
                 url: apiString,
                 data: JSON.stringify(scenarioList),
+                type: 'POST',
+                contentType: "application/json",
+                dataType: "json",
                 success: function (result) {
                     console.log("halleujah");
                 }
@@ -122,7 +125,7 @@ $(document).ready(function () {
         var optionName = currentForm.children(".js-optiontext").val();
         var optionLinkedScenario = currentScenario.Options.filter(function (option) { return option.OptionName === optionName; })[0];
 
-        if (optionLinkedScenario !== "" || optionLinkedScenario !== undefined)
+        if (optionLinkedScenario !== "" && typeof (optionLinkedScenario) !== "undefined")
             dropdown.find("option:contains(" + optionLinkedScenario.LinkedScenarioName + ")").prop("selected", true);
 
         $('select').formSelect();

@@ -32,6 +32,7 @@ namespace ScenarioBuilder.API
             services.AddScoped<IScenarioRepository, ScenarioRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<TheTaleOfUContext>();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +46,8 @@ namespace ScenarioBuilder.API
             {
                 app.UseHsts();
             }
+
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();
             app.UseMvc();

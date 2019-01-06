@@ -14,7 +14,7 @@ namespace ScenarioBuilder.API.Controllers
     {
 
         [HttpPost, Route("save")]
-        public void PostScenarios(List<ScenarioOptionTransferObject> Scenarios)
+        public void PostScenarios([FromBody] List<ScenarioTransferObject> scenarios)
         {
 
         }
