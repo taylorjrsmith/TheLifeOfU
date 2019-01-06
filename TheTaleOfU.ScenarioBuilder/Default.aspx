@@ -81,7 +81,7 @@
 
 
 
-                                <div class="hexagon-holder">
+                                <%--  <div class="hexagon-holder">
                                     <div class="hexagon">
                                     </div>
                                     <p class="hexagon-text">
@@ -100,18 +100,20 @@
                                         Add enemy
                                     </p>
                                     <span class="fa fa-user-ninja fa-2x fa-hexagon-icon"></span>
-                                </div>
+                                </div>--%>
 
-                                <div class="hexagon-holder">
+                                <a href="#" data-izimodal-open="#modal-gainitem" data-izimodal-transitionin="fadeInDown">
+                                    <div class="hexagon-holder">
 
-                                    <div class="hexagon">
+                                        <div class="hexagon">
+                                        </div>
+
+                                        <p class="hexagon-text">
+                                            Gain item
+                                        </p>
+                                        <span class="fa fa-suitcase fa-2x fa-hexagon-icon"></span>
                                     </div>
-
-                                    <p class="hexagon-text">
-                                        Gain item
-                                    </p>
-                                    <span class="fa fa-suitcase fa-2x fa-hexagon-icon"></span>
-                                </div>
+                                </a>
 
                                 <p style="margin-top: 25px;">
                                     Add next step (optional)
@@ -147,6 +149,11 @@
             <div class="list-items">
                 <table class="created-senario-list table">
                     <tbody>
+                        <tr>
+                            <td>
+                                <span class="js-sendrequest" style="padding: 10px; background-color: aqua;">Send Request</span>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -159,6 +166,32 @@
         <div class="add-to-tree">
             <a class="waves-effect waves-light btn js-addscenariototree">Update scenario tree</a>
         </div>
+    </div>
+
+    <div id="modal-actions">
+        <div id="modal-gainitem">
+            <div class="iziModal-content">
+                <div class="hexagon-holder">
+
+                    <div class="hexagon">
+                    </div>
+
+                    <span class="fa fa-suitcase fa-2x fa-hexagon-icon"></span>
+                </div>
+                <p class="modal-title">Gain Item</p>
+                <div class="modal-form">
+                    <p>Reward text</p>
+                    <textarea class="t-input t-textarea js-gainitem-rewardtext" placeholder="Please enter some reward text"></textarea>
+                    <div class="select-item js-selectitem">
+                        Select Item
+                    </div>
+                </div>
+                <div class="modal-save js-gainitem-save">
+                    Save
+                </div>
+            </div>
+        </div>
+
     </div>
 
 

@@ -369,6 +369,10 @@ textarea {
     color: white;
 }
 
+.fa-suitcase.fa-hexagon-icon {
+    left: 15px;
+}
+
 
 .t-collapsable-head {
     min-height: 45px;
@@ -484,4 +488,64 @@ span.fa.fa-3x.fa-custom.fa-plus-circle:hover {
     .hexagon:hover {
         background-color: #7625A8;
         cursor: pointer;
+    }
+
+.iziModal-content .hexagon-holder {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.modal-title {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    bottom: 24px;
+    background-color: #002e3f;
+    width: 80%;
+    margin-left: -20px;
+    color: white;
+    border-radius: 0 100px 100px 0;
+    text-align: center;
+    border: 2px solid #41afc6;
+    border-left: none;
+}
+
+.modal-form {
+    margin-left: 14%;
+    margin-top: -30px;
+}
+
+    .modal-form .t-input {
+        height: 40%;
+        width: 90%;
+    }
+
+    .modal-form .select-item {
+        padding: 10px 10px 10px 10px;
+        background-color: #a936f1;
+        color: white;
+        width: 20%;
+        text-align: center;
+        margin: 10px 0;
+        cursor: pointer;
+    }
+
+.select-item:hover {
+    background-color: #7625A8;
+}
+
+.modal-save {
+    padding: 10px;
+    width: 20%;
+    display: inline-block;
+    background-color: #002e3f;
+    float: right;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .modal-save:hover {
+        background-color: #41afc6;
     }

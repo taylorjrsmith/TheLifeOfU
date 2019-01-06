@@ -3,15 +3,34 @@
     forceLandscape: true
 }
 
+
 $(document).ready(function () {
     var ScenarioOptionContainerTemplate = $(".t-option").parent().html();
     var scenarioList = [];
+    var apiString = 'https://localhost:44308/api/scenariobuilder/save';
+
+
+    $(".js-sendrequest").on("click", function () {
+        console.log("sending payload: " + scenarioList);
+        $.ajax(
+            {
+                url: apiString,
+                data: JSON.stringify(scenarioList),
+                success: function (result) {
+                    console.log("halleujah");
+                }
+            }
+
+        );
+
+    });
 
     setAddOptionDisabled();
     rebind();
 
 
-
+    $("#modal-gainitem").iziModal();
+    $("#modal-gainitem").iziModal('open');
 
     $(".js-lr-chevron").on("click", function () {
         if ($(this).hasClass("fa-chevron-right")) {
