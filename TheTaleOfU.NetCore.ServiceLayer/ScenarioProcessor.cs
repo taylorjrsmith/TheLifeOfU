@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TheTaleOfU.NetCore.DataLayer;
 using TheTaleOfU.NetCore.EntityLayer;
+using TheTaleOfU.NetCore.Shared;
 
 namespace TheTaleOfU.NetCore.ServiceLayer
 {
@@ -11,6 +12,7 @@ namespace TheTaleOfU.NetCore.ServiceLayer
     {
         Task<string> WriteMessage(string message);
         void RunScenario(Player player, Scenario scenario);
+        Scenario CreateScenario(ScenarioTransferObject scenarioTransferObject, IOptionProcessor optionProcessor);
     }
 
     public class ScenarioProcessor : IScenarioProcessor
@@ -25,6 +27,19 @@ namespace TheTaleOfU.NetCore.ServiceLayer
         public Task<string> WriteMessage(string message)
         {
             return Task.FromResult<string>("I am running");
+        }
+
+        public Scenario CreateScenario(ScenarioTransferObject scenarioTransferObject, IOptionProcessor optionProcessor)
+        {
+            var scenario = new Scenario();
+            scenario.ScenarioDescription = scenarioTransferObject.ScenarioDescription;
+            scenario.ScenarioName = scenarioTransferObject.ScenarioName;
+            foreach (var o in scenarioTransferObject.Options)
+            {
+                scenario.Options.Add(optionProcessor.GenerateOption(o));
+            }
+
+            return scenario;
         }
 
         public void RunScenario(Player player, Scenario scenario)

@@ -9,6 +9,7 @@ namespace TheTaleOfU.NetCore.EntityLayer
    public class Option
     {
         public int Id { get; set; }
+        public string Name { get; set; }
         public string Text { get; set; }
         public int? NextScenarioId { get; set; }
         [ForeignKey("NextScenarioId")]
