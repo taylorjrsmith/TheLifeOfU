@@ -29,6 +29,7 @@ namespace ScenarioBuilder.API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddScoped<IScenarioProcessor, ScenarioProcessor>();
+            services.AddScoped<IOptionProcessor, OptionProcessor>();
             services.AddScoped<IScenarioRepository, ScenarioRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<TheTaleOfUContext>();

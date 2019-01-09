@@ -10,6 +10,7 @@ namespace TheTaleOfU.NetCore.EntityLayer
     {
         public int Id { get; set; }
         public string ScenarioDescription { get; set; }
+        public string ScenarioName { get; set; }
         public PlayerType AllowedPlayerTypes { get; set; }
         public List<Option> Options { get; set; }
         public bool IsEndOfScenarioRoute { get; set; }
