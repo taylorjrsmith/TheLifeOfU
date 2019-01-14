@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheTaleOfU.NetCore.DataLayer;
 
 namespace TheTaleOfU.NetCore.DataLayer.Migrations
 {
     [DbContext(typeof(TheTaleOfUContext))]
-    partial class TheTaleOfUContextModelSnapshot : ModelSnapshot
+    [Migration("20190114135307_fixInventory#")]
+    partial class fixInventory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

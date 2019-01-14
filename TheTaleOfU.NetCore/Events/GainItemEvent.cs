@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace TheTaleOfU.NetCore.EntityLayer.Events
+namespace TheTaleOfU.NetCore.EntityLayer
 {
     public class GainItemEvent
     {
+        [Column("GainItemEventId")]
         public int Id { get; set; }
         public string CustomText { get; set; }
         public Item Item { get; set; }
@@ -14,6 +17,8 @@ namespace TheTaleOfU.NetCore.EntityLayer.Events
         public Player CurrentPlayer { get; set; }
         public int OptionId { get; set; }
         [ForeignKey("OptionId")]
-        public Option Option { get; set; }
+        public virtual Option Option { get; set; }
+
+
     }
 }

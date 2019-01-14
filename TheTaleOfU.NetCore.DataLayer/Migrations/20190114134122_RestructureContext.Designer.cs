@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheTaleOfU.NetCore.DataLayer;
 
 namespace TheTaleOfU.NetCore.DataLayer.Migrations
 {
     [DbContext(typeof(TheTaleOfUContext))]
-    partial class TheTaleOfUContextModelSnapshot : ModelSnapshot
+    [Migration("20190114134122_RestructureContext")]
+    partial class RestructureContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,6 +82,8 @@ namespace TheTaleOfU.NetCore.DataLayer.Migrations
 
                     b.Property<int>("OriginScenarioId");
 
+                    b.Property<int?>("ScenarioId");
+
                     b.Property<string>("Text");
 
                     b.HasKey("Id");
@@ -87,6 +91,8 @@ namespace TheTaleOfU.NetCore.DataLayer.Migrations
                     b.HasIndex("NextScenarioId");
 
                     b.HasIndex("OriginScenarioId");
+
+                    b.HasIndex("ScenarioId");
 
                     b.ToTable("Options");
                 });
@@ -110,20 +116,13 @@ namespace TheTaleOfU.NetCore.DataLayer.Migrations
 
             modelBuilder.Entity("TheTaleOfU.NetCore.EntityLayer.PlayerInventory", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("PlayerInventoryId")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<Guid>("PlayerGuid");
 
                     b.Property<int>("ItemId");
 
-                    b.Property<Guid>("PlayerGuid");
-
-                    b.HasKey("Id");
+                    b.HasKey("PlayerGuid");
 
                     b.HasIndex("ItemId");
-
-                    b.HasIndex("PlayerGuid");
 
                     b.ToTable("Inventories");
                 });
@@ -165,9 +164,13 @@ namespace TheTaleOfU.NetCore.DataLayer.Migrations
                         .HasForeignKey("NextScenarioId");
 
                     b.HasOne("TheTaleOfU.NetCore.EntityLayer.Scenario", "OriginScenario")
-                        .WithMany("Options")
+                        .WithMany()
                         .HasForeignKey("OriginScenarioId")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TheTaleOfU.NetCore.EntityLayer.Scenario")
+                        .WithMany("Options")
+                        .HasForeignKey("ScenarioId");
                 });
 
             modelBuilder.Entity("TheTaleOfU.NetCore.EntityLayer.PlayerInventory", b =>

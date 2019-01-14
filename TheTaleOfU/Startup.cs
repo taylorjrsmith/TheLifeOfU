@@ -11,50 +11,50 @@ namespace TheTaleOfU
     {
         public List<Player> Players { get; set; } = new List<Player>();
 
-        public void StartGame()
-        {
-            Console.WriteLine("Welcome to TheLifeOfU");
-            Console.WriteLine("How many of you are playing?");
-            var isValid = false;
-            int playerCountNumeric = 0;
-            while (!isValid)
-            {
-                var playerCount = Console.ReadLine();
-                isValid = ValidatePlayerCount(playerCount);
-                if (isValid)
-                    playerCountNumeric = Convert.ToInt32(playerCount);
-            }
+        //public void StartGame()
+        //{
+        //    Console.WriteLine("Welcome to TheLifeOfU");
+        //    Console.WriteLine("How many of you are playing?");
+        //    var isValid = false;
+        //    int playerCountNumeric = 0;
+        //    while (!isValid)
+        //    {
+        //        var playerCount = Console.ReadLine();
+        //        isValid = ValidatePlayerCount(playerCount);
+        //        if (isValid)
+        //            playerCountNumeric = Convert.ToInt32(playerCount);
+        //    }
 
-            for (int i = 0; i < playerCountNumeric; i++)
-            {
-                var player = new Player();
-                player.Health = 100;
-                Console.WriteLine($"Player {i}, what is your name?");
-                var name = Console.ReadLine();
-                player.Name = name;
-                player.Inventory = new List<Item>();
-                GeneratePlayerType(player);
-                Console.WriteLine($"Welcome to TheLifeOfU {player.Name}, I have assigned you as a {player.PlayerType}, Press any key to continue");
-                Console.ReadKey();
-                Players.Add(player);
+        //    for (int i = 0; i < playerCountNumeric; i++)
+        //    {
+        //        var player = new Player();
+        //        player.Health = 100;
+        //        Console.WriteLine($"Player {i}, what is your name?");
+        //        var name = Console.ReadLine();
+        //        player.Name = name;
+        //        player.Inventory = new List<Item>();
+        //        GeneratePlayerType(player);
+        //        Console.WriteLine($"Welcome to TheLifeOfU {player.Name}, I have assigned you as a {player.PlayerType}, Press any key to continue");
+        //        Console.ReadKey();
+        //        Players.Add(player);
 
-            }
+        //    }
 
-            Console.WriteLine("This round of TheLifeOfU will last 1 hour, you now have 1 hour to earn as much money as you can not die and run through different scenarios, good luck");
-            var hourWindow = DateTime.Now.AddHours(1);
+        //    Console.WriteLine("This round of TheLifeOfU will last 1 hour, you now have 1 hour to earn as much money as you can not die and run through different scenarios, good luck");
+        //    var hourWindow = DateTime.Now.AddHours(1);
 
-            while (hourWindow > DateTime.Now)
-            {
-                foreach (var p in Players)
-                {
-                    Console.WriteLine($"{p.Name} it's your turn");
-                    var scenario = LoadScenario();
-                    scenario.RunScenario(p);
-                }
-            }
+        //    while (hourWindow > DateTime.Now)
+        //    {
+        //        foreach (var p in Players)
+        //        {
+        //            Console.WriteLine($"{p.Name} it's your turn");
+        //            var scenario = LoadScenario();
+        //            scenario.RunScenario(p);
+        //        }
+        //    }
 
 
-        }
+        //}
 
         public Scenario LoadScenario()
         {

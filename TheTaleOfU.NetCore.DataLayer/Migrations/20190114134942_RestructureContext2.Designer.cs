@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheTaleOfU.NetCore.DataLayer;
 
 namespace TheTaleOfU.NetCore.DataLayer.Migrations
 {
     [DbContext(typeof(TheTaleOfUContext))]
-    partial class TheTaleOfUContextModelSnapshot : ModelSnapshot
+    [Migration("20190114134942_RestructureContext2")]
+    partial class RestructureContext2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,20 +112,13 @@ namespace TheTaleOfU.NetCore.DataLayer.Migrations
 
             modelBuilder.Entity("TheTaleOfU.NetCore.EntityLayer.PlayerInventory", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("PlayerInventoryId")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<int>("ItemId");
 
                     b.Property<Guid>("PlayerGuid");
 
-                    b.HasKey("Id");
+                    b.HasKey("ItemId");
 
-                    b.HasIndex("ItemId");
-
-                    b.HasIndex("PlayerGuid");
+                    b.HasAlternateKey("PlayerGuid");
 
                     b.ToTable("Inventories");
                 });

@@ -32,14 +32,26 @@ namespace TheTaleOfU.NetCore.ServiceLayer
         public Scenario CreateScenario(ScenarioTransferObject scenarioTransferObject, IOptionProcessor optionProcessor)
         {
             var scenario = new Scenario();
-            scenario.ScenarioDescription = scenarioTransferObject.ScenarioDescription;
-            scenario.ScenarioName = scenarioTransferObject.ScenarioName;
+            scenario.Description = scenarioTransferObject.ScenarioDescription;
+            scenario.Name = scenarioTransferObject.ScenarioName;
             foreach (var o in scenarioTransferObject.Options)
             {
                 scenario.Options.Add(optionProcessor.GenerateOption(o));
             }
+            SaveScenario(scenario);
 
             return scenario;
+        }
+
+        public void SaveScenario(Scenario scenario)
+        {
+            if (scenario.Id == 0)
+                ScenarioRepository.Add(scenario);
+            else
+            {
+                ScenarioRepository.Update(scenario);
+            }
+            ScenarioRepository.UnitOfWork.Commit();
         }
 
         public void RunScenario(Player player, Scenario scenario)
