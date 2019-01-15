@@ -31,6 +31,30 @@ $(document).ready(function () {
     setAddOptionDisabled();
     rebind();
 
+    function insertDemoScenario() {
+        var tfsscenarioName = "Thanos fight scene";
+        var tfsscenarioDescription = "Thanos is standing in front of you, about to snap his fingers and wipe out half of the universe how do you react";
+        var options = [];
+        options.push({ OptionText: "Use the eye of Aggamotto", LinkedScenarioName: "Timelock", OptionName: "aggamotto effect" });
+        options.push({ OptionText: "Use the hulk to smash an infinity stone", LinkedScenarioName: "End Game", OptionName: "Hulk does not smash" });
+        options.push({ OptionText: "Use thor to send stormbreaker into thanos's eye", LinkedScenarioName: "It missed", OptionName: "Disorientated" });
+
+        var filteredList = scenarioList.filter(function (scenario) { return scenario.ScenarioName === tfsscenarioName; });
+
+        if (filteredList.length > 0) {
+            scenarioList = scenarioList.filter(function (scenario) { return scenario.ScenarioName !== tfsscenarioName; });
+        } else {
+            $(".created-senario-list").append("<tr><td class='item'><h5>" + tfsscenarioName + "</h5><div class='dot' data-position='right'></div></td></tr>");
+        }
+
+        scenarioList.push({ ScenarioName: tfsscenarioName, ScenarioDescription: tfsscenarioDescription, Options: options });
+        rebind();
+        $(".js-insertdemo").parent().remove();
+    }
+    $(".js-insertdemo").on("click", function () {
+        insertDemoScenario();
+    });
+
 
     $("#modal-gainitem").iziModal();
     $("#modal-gainitem").iziModal('open');

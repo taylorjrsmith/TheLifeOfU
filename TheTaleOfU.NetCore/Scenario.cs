@@ -16,7 +16,7 @@ namespace TheTaleOfU.NetCore.EntityLayer
         public string Name { get; set; }
         public string Description { get; set; }
         public PlayerType AllowedPlayerTypes { get; set; }
-        public List<Option> Options { get; set; }
+        public List<Option> Options { get; set; } = new List<Option>();
         [NotMapped]
         private Player CurrentPlayer { get; set; }
 

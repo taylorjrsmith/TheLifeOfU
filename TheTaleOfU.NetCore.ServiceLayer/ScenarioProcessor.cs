@@ -43,6 +43,12 @@ namespace TheTaleOfU.NetCore.ServiceLayer
             return scenario;
         }
 
+        public Scenario Load(string scenarioName)
+        {
+            var scenario = ScenarioRepository.Get(a => a.Name == scenarioName).FirstOrDefault();
+            return scenario;
+        }
+
         public void SaveScenario(Scenario scenario)
         {
             if (scenario.Id == 0)

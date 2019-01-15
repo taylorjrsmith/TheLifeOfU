@@ -153,6 +153,9 @@
                             <td>
                                 <span class="js-sendrequest" style="padding: 10px; background-color: aqua;">Send Request</span>
                             </td>
+                             <td>
+                                <span class="js-insertdemo" style="padding: 10px; background-color: orange;">Insert Demo</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
