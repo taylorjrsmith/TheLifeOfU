@@ -18,6 +18,7 @@ namespace TheTaleOfU.NetCore.ServiceLayer
             var option = new Option();
             option.Text = optionTransferObject.OptionText;
             option.Name = optionTransferObject.OptionName;
+            option.NextScenarioName = optionTransferObject.LinkedScenarioName;
 
             return option;
         }

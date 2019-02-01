@@ -24,7 +24,7 @@ namespace ScenarioBuilder.API.Controllers
         }
 
         [HttpPost, Route("save")]
-        public void PostScenarios([FromBody] List<ScenarioTransferObject> scenarios)
+        public IActionResult PostScenarios([FromBody] List<ScenarioTransferObject> scenarios)
         {
             List<Scenario> Scenarios = new List<Scenario>();
 
@@ -32,7 +32,9 @@ namespace ScenarioBuilder.API.Controllers
             {
                 ScenarioProcessor.CreateScenario(s, OptionProcessor);
             }
+            ScenarioProcessor.CommitScenarios();
 
+            return new OkResult();
         }
 
 

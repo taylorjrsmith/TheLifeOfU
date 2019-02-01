@@ -16,6 +16,8 @@ namespace TheTaleOfU.NetCore.EntityLayer
         public int OriginScenarioId { get; set; }
         [ForeignKey("OriginScenarioId")]
         public virtual Scenario OriginScenario { get; set; }
+        [NotMapped]
+        public string NextScenarioName { get; set; }
         public int? NextScenarioId { get; set; }
         [ForeignKey("NextScenarioId")]
         public virtual Scenario NextScenario { get; set; }

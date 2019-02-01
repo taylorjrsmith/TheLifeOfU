@@ -19,8 +19,20 @@ $(document).ready(function () {
                 type: 'POST',
                 contentType: "application/json",
                 dataType: "json",
-                success: function (result) {
-                    console.log("halleujah");
+                complete: function (result) {
+                    console.log(result);
+                    if (result.status === 200)
+                        iziToast.success({
+                            title: 'Success',
+                            message: 'Successfully saved scenarios'
+                        });
+                    else
+                        iziToast.warning({
+                            title: 'Bad Request',
+                            message: 'An error occured please try again',
+                            color: "red"
+                        });
+
                 }
             }
 
@@ -78,6 +90,8 @@ $(document).ready(function () {
 
     function updateScenarioTree() {
         var constructedScenario = constructScenario();
+        if (constructedScenario.ScenarioName == "")
+            return;
         console.log(constructedScenario);
         var filteredList = scenarioList.filter(function (scenario) { return scenario.ScenarioName === constructedScenario.ScenarioName; });
 
@@ -143,7 +157,7 @@ $(document).ready(function () {
             $(value).remove();
         });
         scenarioList.filter(function (scenario) { return scenario.ScenarioName !== scenarioName; }).forEach(function (scenario) {
-            dropdown.append("<option value=" + scenario.ScenarioName + ">" + scenario.ScenarioName + "</option>");
+            dropdown.append("<option value='" + scenario.ScenarioName + "'>" + scenario.ScenarioName + "</option>");
         });
 
         var optionName = currentForm.children(".js-optiontext").val();

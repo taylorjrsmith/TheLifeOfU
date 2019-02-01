@@ -15,7 +15,7 @@ namespace TheTaleOfU.NetCore.DataLayer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=TheTaleOfU;Integrated Security=True;Pooling=False;Connect Timeout=30");
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=TheTaleOfU;Integrated Security=True;Pooling=False;Connect Timeout=30");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TheTaleOfU.NetCore.DataLayer;
@@ -13,15 +14,20 @@ namespace TheTaleOfU.NetCore.ServiceLayer
         Task<string> WriteMessage(string message);
         void RunScenario(Player player, Scenario scenario);
         Scenario CreateScenario(ScenarioTransferObject scenarioTransferObject, IOptionProcessor optionProcessor);
+        List<Scenario> ProcessingScenarios { get; set; }
+        void CommitScenarios();
+
     }
 
     public class ScenarioProcessor : IScenarioProcessor
     {
+        public List<Scenario> ProcessingScenarios { get; set; }
 
         public IScenarioRepository ScenarioRepository;
         public ScenarioProcessor(IScenarioRepository scenarioRepository)
         {
             ScenarioRepository = scenarioRepository;
+            ProcessingScenarios = new List<Scenario>();
         }
 
         public Task<string> WriteMessage(string message)
@@ -38,9 +44,25 @@ namespace TheTaleOfU.NetCore.ServiceLayer
             {
                 scenario.Options.Add(optionProcessor.GenerateOption(o));
             }
-            SaveScenario(scenario);
+            ProcessingScenarios.Add(scenario);
 
             return scenario;
+        }
+
+        public void CommitScenarios()
+        {
+            foreach (var s in ProcessingScenarios)
+            {
+                foreach (var o in s.Options)
+                {
+                    o.NextScenario = ProcessingScenarios.FirstOrDefault(a => a.Name == o.NextScenarioName);
+                }
+                SaveScenario(s);
+
+            }
+            ScenarioRepository.UnitOfWork.Commit();
+            ProcessingScenarios.Clear();
+
         }
 
         public Scenario Load(string scenarioName)
@@ -57,7 +79,6 @@ namespace TheTaleOfU.NetCore.ServiceLayer
             {
                 ScenarioRepository.Update(scenario);
             }
-            ScenarioRepository.UnitOfWork.Commit();
         }
 
         public void RunScenario(Player player, Scenario scenario)
