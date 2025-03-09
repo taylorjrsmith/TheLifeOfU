@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.button-container {
+    position: fixed;
+    top: 15px;
+    left: 25px;
+}
+
+.flex {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.senario-container {
+    position: absolute;
+    right: 0;
+    background-color: grey;
+    width: 350px;
+    height: 100%;
+}
+
+.item {
+    text-align: center;
+}
+
+.senario-container h6 {
+    text-align: center;
+}
+
+textarea {
+    margin: 0px auto;
+    margin-top: 15px;
+    width: 500px;
+    height: 100px;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+    border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+    border-image: none;
+    border-radius: 6px 6px 6px 6px;
+    border-style: none solid solid none;
+    border-width: medium 2px 2px medium;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+    color: #555555;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1em;
+    line-height: 1.4em;
+    padding: 5px 8px;
+    transition: background-color 0.2s ease 0s;
+  }
+
+  .input {
+    margin: 0px auto;
+    width: 300px !important;
+  }
+
+  textarea:focus {
+    background: none repeat scroll 0 0 #FFFFFF;
+    outline-width: 0;
+}
+
+.button {
+    margin-top: 10px;
+}
+
+.add-option-container {
+    margin: 0px auto;
+    margin-top: 50px;
+    width: 600px;
+    height: 600px;
+    background-color: grey;
+}
+
+.option-input {
+    text-align: center;
+    color: #000;
+}
+
+::placeholder {
+    color: #000;
+}
+
+.add-btn {
+    margin-left: 15px;
+}
+
+.add-linked-senario {
+    display: block;
+    margin-top: 25px;
+    margin-left: 15px;
+}
+
+.input-field {
+    margin-top: 30px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+label {
+    margin-left: 220px;
+    font-size: 15px !important;
+}
+
+.add-option-container .button {
+    position: absolute;
+    right: 675px;
+    bottom: 125px;
+    
+}
+ 
+
+
+
