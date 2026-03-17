@@ -1,17 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using TheTaleOfU;
 
-namespace TheTaleOfU.Console
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var gameEngine = new GameEngine();
-            gameEngine.StartGame();
-        }
-    }
-}
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(AppContext.BaseDirectory)
+    .AddJsonFile("appsettings.json", optional: false)
+    .Build();
+
+var services = new ServiceCollection();
+
+services.AddDbContext<TheTaleOfUContext>(options =>
+    options.UseSqlServer(configuration.GetConnectionString("TheTaleOfUContext")));
+
+services.AddTransient<GameEngine>();
+
+var serviceProvider = services.BuildServiceProvider();
+
+var gameEngine = serviceProvider.GetRequiredService<GameEngine>();
+gameEngine.StartGame();
