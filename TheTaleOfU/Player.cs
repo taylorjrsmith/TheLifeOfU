@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TheTaleOfU.Enums;
 
-namespace TheTaleOfU
+namespace TheTaleOfU;
+
+public class Player
 {
-    public class Player
-    {
-        public int Id { get; set; }
-        public int Health { get; set; }
-        public string Name { get; set; }
-        public List<Item> Inventory { get; set; }
-        public PlayerType PlayerType { get; set; }
-        [NotMapped]
-        public Item ActiveItem { get; set; }
-    }
+    public int Id { get; set; }
+    public int Health { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public List<Item> Inventory { get; set; } = new();
+    public PlayerType PlayerType { get; set; }
+    [NotMapped]
+    public Item? ActiveItem { get; set; }
 }
