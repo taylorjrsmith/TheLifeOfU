@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace TheTaleOfU.Enums;
 
-namespace TheTaleOfU.Enums
+public enum CompanionType
 {
-    public enum CompanionType
-    {
-    }
+    Dog,
+    Cat,
+    Robot,
+    Wizard
 }
